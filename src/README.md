@@ -1,47 +1,28 @@
 # Source Code
 
-Place all your project's source code in this folder.
+This folder contains the source code for AI PCB Doctor.
 
-## Structure Guidelines
+## Purpose
 
-Organize your code logically. Here are common patterns — use whatever fits
-your project:
+The source code implements the AI-assisted PCB visual inspection workflow, including:
 
-### Web Application
-```
-src/
-  backend/        ← API server code
-  frontend/       ← UI code
-  shared/         ← Shared utilities/types
-```
+- PCB image upload
+- Image analysis
+- Defect classification
+- Confidence and severity assessment
+- Approximate defect location
+- Probable cause identification
+- Recommended corrective action
+- Inspection result generation
 
-### Data / AI Project
-```
-src/
-  data/           ← Data ingestion / preprocessing
-  models/         ← ML model code
-  api/            ← Serving layer
-  notebooks/      ← Jupyter notebooks (exploration)
-```
+## Supported PCB Categories
 
-### CLI / Script-based Tool
-```
-src/
-  cli/            ← CLI entry points
-  lib/            ← Core logic
-  utils/          ← Helpers
-```
+- Normal PCB
+- Solder Bridge
+- Missing Component
+- Burn/Damage
+- Trace Damage
 
-## Important Files to Include
+## Source Structure
 
-- `requirements.txt` or `package.json` — dependency manifest
-- `.env.example` — template for environment variables (NEVER commit `.env`)
-- Any database migration files
-- Configuration files
-
-## What NOT to Include in src/
-
-- `.env` files with real secrets
-- Large binary files (use Git LFS or link externally)
-- `node_modules/` or `venv/` (these are in `.gitignore`)
-- Build artifacts (`dist/`, `build/`, `__pycache__/`)
+Application source files and supporting modules will be organized in this folder according to their functionality.

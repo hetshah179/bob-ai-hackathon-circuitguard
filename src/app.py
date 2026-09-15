@@ -26,3 +26,11 @@ if uploaded_file is not None:
     )
 
     st.info("AI analysis module will process the uploaded PCB image.")
+        from model import analyze_image
+
+    result = analyze_image(uploaded_file)
+
+    st.success(f"Detected Condition: {result['condition']}")
+    st.write(f"Confidence: {result['confidence'] * 100:.0f}%")
+    st.write(f"Severity: {result['severity']}")
+    st.write(f"Approximate Location: {result['location']}")

@@ -1,79 +1,70 @@
-# Setup Guide
-
-> **This file is read by the automated evaluation pipeline. Be precise and complete.**
+# 🛠️ AI PCB Doctor — Setup Guide
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
+Before running AI PCB Doctor, ensure you have:
 
-- [ ] [e.g., Python 3.11+]
-- [ ] [e.g., Node.js 18+]
-- [ ] [e.g., Docker Desktop]
-- [ ] [e.g., An IBM Cloud account with watsonx.ai access]
-
-## Environment Variables
-
-Copy `.env.example` to `.env` and fill in the values:
-
-```bash
-cp .env.example .env
-```
-
-| Variable | Description | Required |
-|---|---|---|
-| `WATSONX_API_KEY` | Your IBM watsonx.ai API key | Yes |
-| `WATSONX_PROJECT_ID` | Your watsonx.ai project ID | Yes |
-| `DATABASE_URL` | PostgreSQL connection string | Yes |
-| `SLACK_WEBHOOK_URL` | Slack webhook for alerts | No |
+- Python 3.9 or later
+- Git
+- Internet connection
+- Required Python dependencies installed from `requirements.txt`
 
 ## Installation
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/[your-org]/[your-repo].git
-cd [your-repo]
-
-# 2. Install backend dependencies
-[your command — e.g.: pip install -r requirements.txt]
-
-# 3. Install frontend dependencies (if applicable)
-[your command — e.g.: cd frontend && npm install]
-
-# 4. Set up the database (if applicable)
-[your command — e.g.: python manage.py migrate]
-```
-
-## Running the Application
+### 1. Clone the repository
 
 ```bash
-# Start the backend
-[your command — e.g.: uvicorn app.main:app --reload]
+git clone https://github.com/hetshah179/bob-ai-hackathon-circuitguard.git
+cd bob-ai-hackathon-circuitguard
 
-# Start the frontend (in a separate terminal, if applicable)
-[your command — e.g.: cd frontend && npm run dev]
-```
+### 2. Create a virtual environment
 
-The application will be available at: `http://localhost:[PORT]`
+**macOS:**
 
-## Running Tests
+python3 -m venv venv
+source venv/bin/activate
 
-```bash
-[your test command — e.g.: pytest tests/ -v]
-```
+## Install Dependencies
 
-## Quick Demo (Optional)
+Install the required Python packages using:
+pip install -r requirements.txt
 
-If you have a demo script or sample data to showcase the project quickly:
+## Run the Application
 
-```bash
-[e.g.: python demo/seed_demo_data.py]
-[e.g.: open http://localhost:8000/demo]
-```
+Start the application using the command defined in the project implementation.
+## Supported PCB Categories
 
-## Troubleshooting
+AI PCB Doctor currently focuses on five visible PCB conditions:
+- Normal PCB
+- Solder Bridge
+- Missing Component
+- Burn/Damage
+- Trace Damage
 
-| Issue | Solution |
-|---|---|
-| [e.g., `ModuleNotFoundError`] | [e.g., Run `pip install -r requirements.txt` again] |
-| [e.g., Database connection refused] | [e.g., Ensure PostgreSQL is running: `docker compose up db`] |
-| [e.g., watsonx.ai 401 error] | [e.g., Check `WATSONX_API_KEY` in your `.env` file] |
+## Using AI PCB Doctor
+
+1. Open the application.
+2. Upload a PCB image.
+3. Start the AI analysis.
+4. Review the detected PCB condition.
+5. Check the confidence and severity assessment.
+6. Review the approximate suspicious region.
+7. Read the probable cause and recommended corrective action.
+8. Review the generated inspection result/report.
+
+## Limitations
+
+AI PCB Doctor performs image-based visual inspection only.
+
+It cannot reliably detect:
+
+- Hidden electrical faults
+- Internal IC failures
+- Incorrect component values
+- Intermittent electrical connections
+- Defects hidden underneath components
+- Defects that are not visually observable
+
+Detection performance may depend on image quality, lighting, camera angle, PCB orientation, and visibility of the defect.
+
+The system is intended as an AI-assisted first-level visual inspection tool and does not replace professional electrical testing or expert technician judgment.

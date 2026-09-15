@@ -1,49 +1,93 @@
-# Architecture
+# 🏗️ AI PCB Doctor — Architecture
 
-## System Architecture
+## System Overview
 
-[Describe the overall architecture of your system. Replace the Mermaid diagram below with your actual architecture.]
+AI PCB Doctor follows an AI-assisted visual inspection workflow.
 
-```mermaid
-graph TD
-    A[User / Browser] -->|HTTP| B[Frontend - React]
-    B -->|REST API| C[Backend - FastAPI]
-    C -->|SDK| D[watsonx.ai]
-    C -->|Query| E[PostgreSQL]
-    C -->|Publish| F[Slack Webhook]
-    D -->|Inference Result| C
-```
+```text
+PCB Image
+   ↓
+Image Upload
+   ↓
+AI Image Analysis
+   ↓
+Defect Classification
+   ↓
+Confidence & Severity Assessment
+   ↓
+Approximate Defect Location
+   ↓
+Probable Cause & Recommendation
+   ↓
+Inspection Result / Report
 
-## Components
+## Processing Pipeline
 
-| Component | Technology | Responsibility |
-|---|---|---|
-| Frontend | [e.g., React 18] | [e.g., Dashboard UI, user interaction] |
-| Backend API | [e.g., FastAPI] | [e.g., Business logic, orchestration] |
-| AI / ML | [e.g., watsonx.ai] | [e.g., Anomaly scoring, classification] |
-| Database | [e.g., PostgreSQL] | [e.g., Storing pipeline events and scores] |
-| Notifications | [e.g., Slack API] | [e.g., Alerting on threshold breaches] |
+### 1. Image Upload
+
+The user provides a PCB image through the application interface.
+
+### 2. AI Image Analysis
+
+The uploaded image is processed by the AI-based image analysis component to identify visual patterns associated with PCB conditions.
+
+### 3. Defect Classification
+
+The system classifies the PCB image into one of the supported categories:
+
+- Normal PCB
+- Solder Bridge
+- Missing Component
+- Burn/Damage
+- Trace Damage
+
+### 4. Result Analysis
+
+The system generates:
+
+- Detected condition
+- Confidence score
+- Severity level
+- Approximate suspicious region
+- Probable cause
+- Recommended corrective action
+
+### 5. Inspection Report
+
+The analysis results are presented to the user as an inspection result/report for further examination and testing.
+
+## Application Components
+
+The system consists of the following major components:
+
+- **User Interface:** Allows the user to upload PCB images and view inspection results.
+- **Image Processing:** Prepares the uploaded image for AI analysis.
+- **AI Detection & Classification:** Identifies the visible PCB condition.
+- **Assessment Module:** Generates confidence and severity information.
+- **Diagnosis Module:** Provides probable cause and recommended corrective action.
+- **Report Module:** Presents the final inspection result to the user.
 
 ## Data Flow
 
-[Describe how data moves through your system from input to output.]
+The overall data flow is:
 
-1. [e.g., Pipeline logs are ingested via a webhook from GitHub Actions]
-2. [e.g., Logs are preprocessed and chunked into 512-token segments]
-3. [e.g., Each chunk is sent to the watsonx.ai inference endpoint]
-4. [e.g., Anomaly scores are stored in PostgreSQL]
-5. [e.g., The React dashboard polls the API every 30 seconds to refresh]
+**PCB Image → Image Processing → AI Analysis → Defect Classification → Confidence & Severity Assessment → Diagnosis → Inspection Report**
 
-## Security Considerations
+The final result is displayed to the user so that the suspicious PCB area can be examined further and appropriate testing or corrective action can be performed.
 
-[Note any security decisions relevant to the architecture — even if basic.]
+## Future Enhancements
 
-- [e.g., API keys stored in environment variables, never committed to git]
-- [e.g., All API routes require a Bearer token]
-- [e.g., Database credentials rotated via IBM Secrets Manager]
+Potential future improvements include:
 
-## Scalability Notes
+- Real-time PCB inspection using a camera.
+- Visual bounding boxes or heatmaps for detected defects.
+- Support for additional PCB defect categories.
+- Improved model accuracy through a larger and more diverse dataset.
+- Automated inspection report generation and export.
+- Integration with professional PCB testing and inspection workflows.
 
-[Optional: how would this scale beyond the hackathon prototype?]
+## Conclusion
 
-[e.g., "The FastAPI backend is stateless and could be horizontally scaled behind a load balancer. The watsonx.ai calls are the bottleneck and would benefit from request batching."]
+AI PCB Doctor provides an AI-assisted approach to visual PCB inspection by combining image analysis, defect classification, severity assessment, and corrective recommendations.
+
+The architecture is designed to support faster first-level inspection while keeping professional electrical testing and expert judgment as the final validation.

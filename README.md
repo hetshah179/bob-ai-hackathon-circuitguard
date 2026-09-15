@@ -1,6 +1,6 @@
-# 🚀 [Your Project Title Here]
+# 🚀 AI PCB Doctor
 
-> ⚠️ **Replace everything in `[ ]` brackets with your actual content before submission.**
+> AI-Powered PCB Fault Detection & Diagnosis
 
 ---
 
@@ -8,10 +8,10 @@
 
 | Field | Value |
 |---|---|
-| **Team Name** | [Your Team Name] |
-| **Track** | [AI / DevOps / Sustainability / Open] |
-| **Team Lead** | [Name] — [email@ibm.com] |
-| **Members** | [Name 1], [Name 2], [Name 3] |
+| **Team Name** | CircuitGuard |
+| **Track** | AI |
+| **Team Lead** | Het Shah — 24ec138@charusat.edu.in |
+| **Members** | Het Shah, Sneh Patel, Om Patel, Nirmal Patel |
 
 ---
 
@@ -19,39 +19,40 @@
 
 > In 2–3 sentences: What problem does your project solve? Who experiences this problem?
 
-[Describe the real-world problem your project addresses. Be specific about who the user is and what pain point they face.]
+Manual inspection of Printed Circuit Boards (PCBs) is time-consuming, repetitive, and dependent on technician experience. Visible defects such as solder bridges, missing components, burnt areas, and broken or damaged traces can be difficult to identify quickly, especially during large-scale inspection.
 
+This creates a need for an AI-assisted visual inspection system that can help identify suspicious visible defects faster and provide an initial diagnosis and recommended corrective action.
 ---
 
 ## 💡 Solution
 
 > In 2–3 sentences: What did you build? How does it solve the problem above?
 
-[Describe your solution clearly. Explain the core mechanism — what makes it work.]
+AI PCB Doctor is an AI-assisted visual PCB inspection system that analyzes uploaded PCB images to identify potential visible defects. The system classifies the visible fault, provides confidence and severity information, indicates the approximate suspicious region, identifies a probable cause, and provides a recommended corrective action.
 
+The solution is designed as a first-level inspection assistant to help technicians identify suspicious boards and areas requiring closer examination.
 ---
 
 ## ✨ Key Features
 
-- **Feature 1:** [Brief description — e.g., "Real-time anomaly detection using watsonx.ai"]
-- **Feature 2:** [Brief description]
-- **Feature 3:** [Brief description]
-- **Feature 4:** [Optional]
-- **Feature 5:** [Optional]
-
+- **AI Visual Inspection:** Analyzes uploaded PCB images for potential visible defects.
+- **Defect Classification:** Identifies visible PCB conditions such as Normal PCB, Solder Bridge, Missing Component, Burn/Damage, and Trace Damage.
+- **Confidence & Severity Assessment:** Provides confidence information and categorizes the severity of detected defects.
+- **Approximate Fault Location:** Indicates the approximate region where the suspicious defect is located.
+- **Corrective Recommendation:** Provides a probable cause and recommended corrective action based on the visual analysis.
 ---
 
 ## 🛠️ Tech Stack
 
 | Category | Technologies |
 |---|---|
-| **Languages** | [e.g., Python, TypeScript] |
-| **Frameworks** | [e.g., FastAPI, React] |
-| **IBM Technologies** | [e.g., watsonx.ai, IBM Bob, IBM Cloud] |
-| **Databases** | [e.g., PostgreSQL, Redis] |
-| **Other** | [e.g., Docker, GitHub Actions] |
+| **Languages** | To be updated based on the final implementation |
+| **Frameworks** | To be updated based on the final implementation |
+| **IBM Technologies** | To be updated based on the final implementation |
+| **Databases** | Not required for the initial MVP |
+| **Other** | GitHub, GitHub Actions |
 
----
+> Only technologies actually used in the final implementation will be listed here.---
 
 ## 📁 Repository Structure
 
@@ -68,28 +69,7 @@
 ├── presentation/         # Slide deck
 └── submission.yaml       # Structured submission metadata
 ```
-
 ---
-
-## ⚡ How to Run
-
-> **Copy these exact steps from your [`docs/setup-guide.md`](docs/setup-guide.md)**
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/[your-repo].git
-cd [your-repo]
-
-# 2. Install dependencies
-[your install command here]
-
-# 3. Configure environment
-cp .env.example .env
-# Edit .env with your values
-
-# 4. Run the project
-[your run command here]
-```
 
 ---
 
@@ -100,22 +80,32 @@ cp .env.example .env
 | 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
 | 🌐 Live Demo | [See demo/live-demo-url.txt](demo/live-demo-url.txt) |
 | 🖼️ Screenshots | [See demo/screenshots/](demo/screenshots/) |
-| 📊 Presentation | [See presentation/slides.pdf](presentation/) |
+| 📊 Presentation | [See presentation/](presentation/) |
 
 ---
 
 ## ⚠️ Known Limitations
 
-> Be honest — judges appreciate transparency over overclaiming.
+> AI PCB Doctor focuses on visible PCB defects that can reasonably be inferred from an image.
 
-- [Limitation 1: e.g., "Authentication is mocked — not production-ready"]
-- [Limitation 2: e.g., "Only tested on Chrome"]
-- [Limitation 3: e.g., "Feature X is scaffolded but not fully implemented"]
+- The system cannot reliably detect hidden electrical faults or internal IC failures from a photograph alone.
+- Incorrect component values and intermittent electrical connections cannot be reliably determined through image analysis alone.
+- Defects hidden underneath components or otherwise not visible in the image may not be detected.
+- Detection performance may depend on image quality, lighting conditions, camera angle, PCB orientation, and visibility of the defect.
+- AI analysis may produce false positives or false negatives.
+- The system is intended as an AI-assisted first-level visual inspection tool and does not replace professional electrical testing or expert technician judgment.
+- The system does not claim to detect all possible PCB faults.
 
 ---
 
 ## 🏅 What We're Most Proud Of
 
-[Tell the judges what part of your submission is strongest and worth paying close attention to.]
+We are proud of transforming a repetitive PCB inspection task into an AI-assisted visual inspection workflow.
 
----
+AI PCB Doctor combines visible defect identification with confidence, severity, approximate location, probable cause, and recommended corrective action to help technicians identify suspicious PCB areas faster.
+
+The goal is not to replace expert technicians, but to provide a fast AI-assisted first-level inspection tool that supports closer examination and further testing.
+
+## 🏅 What We're Most Proud Of
+
+The goal is not to replace expert technicians, but to provide a fast AI-assisted first-level inspection tool that supports closer examination and further testing.
